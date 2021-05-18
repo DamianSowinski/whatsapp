@@ -1,4 +1,4 @@
-Image resources:
+Image sources:
 DEFAULT -   https://pixabay.com/photos/woman-kid-rain-leaf-umbrella-1807533/
 SPRING  -   https://pixabay.com/photos/tree-flowers-meadow-tree-trunk-276014/
 SUMMER  -   https://pixabay.com/photos/sunset-tree-water-silhouette-1373171/
@@ -6,3 +6,14 @@ AUTUMN  -   https://pixabay.com/photos/coffee-food-drink-hottest-leaves-3025022/
 WINTER  -   https://pixabay.com/photos/trees-winter-snow-white-cold-4830285/
 DREAM   -   https://pixabay.com/illustrations/abstract-background-wallpaper-1780185/
 OFFICE  -   https://pixabay.com/photos/table-desk-notebook-potted-plant-869379/
+
+
+GIFT    - https://pixabay.com/photos/christmas-new-year-s-eve-postcard-1911637/
+LEMON   - https://pixabay.com/photos/christmas-advent-cinnamon-2918569/
+CHRISTMAS - https://pixabay.com/photos/bag-celebration-christmas-december-21467/
+FOREST  - https://pixabay.com/photos/the-road-beams-path-forest-nature-815297/
+LAKE    - https://pixabay.com/photos/bled-winter-lake-slovenia-castle-2582655/
+TRAVEL  - https://pixabay.com/photos/old-journey-adventure-photo-map-1130731/
+CITY    - https://pixabay.com/photos/canal-venice-italy-water-river-1209808/
+DOCK    - https://pixabay.com/photos/dock-lake-sunset-dusk-reflection-1365387/
+MOUNTAIN - https://pixabay.com/photos/lake-snow-mountains-trees-1581879/
