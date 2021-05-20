@@ -9,8 +9,888 @@
 @author         Damian Sowiński <damian.sowinski@hotmail.com> (https://github.com/DamianSowinski)
 @preprocessor   stylus
 
+@var select theme "Presets" [
+    "default:Default",
+    "spring: Spring",
+    "summer: Summer",
+    "autumn: Autumn",
+    "winter: Winter",
+    "dream: Dream",
+    "office: Office",
+]
+
+@var text     parCustomBgrImage             "Bgr image"                         "'your image url'"
+
+@var checkbox darkStyle                     "Dark style"                        0
+@var checkbox floatContacts                 "Separate contacts"                 0
+@var checkbox reducedContacts               "Reduce contacts"                   0
+@var checkbox separatorContacts             "Hide contacts separate lines"      0
+
+@var range    parChatHeightOffset           "Height offset - chat"                                            [32, 4, 128, 4, "px"]
+@var range    parContactsHeightOffset       "Height offset - contacts (require Separate contacts ON)"          [0, 0, 128, 4, "px"]
+
+@var range    parChatWidth                  "Width - chat"                      [1000, 480, 2280, 10, "px"]
+@var range    parContactsWidth              "Width - contacts"                  [360, 240, 500, 10, "px"]
+
+@var range    parChatRadius                 "Corner smooth - chat"              [16, 1, 48, 1, "px"]
+@var range    parContactsRadius             "Corner smooth - contacts (require Separate contacts ON)"          [0, 0, 48, 1, "px"]
+
+@var range    parChatBlurIntensity          "Blur intensity - chat"             [16, 1, 64, 1, "px"]
+@var range    parContactsBlurIntensity      "Blur intensity - contacts (require Separate contacts ON)"         [16, 1, 64, 1, "px"]
+
+@var color    parChatColor                  "Bgr colour - chat"                 rgba(0, 0, 0, 0.2);
+@var color    parContactsColor              "Bgr colour - contacts"             rgba(0, 0, 0, 0.2);
+
+@var color    parChatHeaderColor            "Header colour - chat"              rgba(0,0,0,0.2)
+@var color    parContactsHeaderColor        "Header colour - contacts"          rgba(0,0,0,0.2)
+
+@var color    parContactSelectedColor       "Selected contact - bgr"            rgba(0,0,0,0.2)
+@var color    parContactSelectedLineColor   "Selected contact - mark"           #65bfff
+
+@var color    parOutgoingBgr                "Message bgr - you"                 #0e3d55
+@var color    parIncomingBgr                "Message bgr - guest"               #262d31
+
+@var color    parTxtColor                   "Text colour"                       #ffffff
+@var color    parLinkColor                  "Link colour"                       #68bbe4
+@var color    parNoticeColor                "Notice colour"                     #65bfff
+@var color    parReadMarker                 "Read marker colour"                #65bfff
+@var color    parInputBgr                   "Input field bgr"                   rgba(0,0,0,0.2)
+@var color    parInputTxt                   "Input field text colour"           rgba(255,255,255, 0.9)
+
 ==/UserStyle== */
 
 @-moz-document domain("web.whatsapp.com") {
+  if parCustomBgrImage != "your image url" {
+    bgrImage = parCustomBgrImage;
+  } else {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/default.jpg';
+  }
+
+  /* themes */
+  if theme == spring {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/spring.jpg';
+    floatContacts = 1;
+    reducedContacts = 1;
+    separatorContacts = 0;
+    parChatColor = rgba(black, 0.3);
+    parContactsColor = rgba(black, 0.3);
+    parChatHeaderColor = rgba(black, 0.3);
+    parContactsHeaderColor = rgba(black, 0.3);
+    parContactSelectedColor = rgba(black, 0.2);
+    parContactSelectedLineColor = #78b30f;
+    parOutgoingBgr = #181818;
+    parIncomingBgr = #222;
+    parTxtColor = #fff;
+    parLinkColor = #70ddcb;
+    parNoticeColor = #aeea58;
+    parReadMarker = #97e113;
+    parInputBgr = rgba(black, 0.2);
+    parInputTxt = #fff;
+  }
+
+  if theme == summer {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/summer.jpg';
+    floatContacts = 1;
+    reducedContacts = 1;
+    separatorContacts = 1;
+    parChatColor = rgba(black, 0.3);
+    parContactsColor = rgba(black, 0.3);
+    parChatHeaderColor = rgba(black, 0.3);
+    parContactsHeaderColor = rgba(black, 0.3);
+    parContactSelectedColor = rgba(black, 0.2);
+    parContactSelectedLineColor = #fcd7a4;
+    parOutgoingBgr = #180E18;
+    parIncomingBgr = #261D3C;
+    parTxtColor = #fff;
+    parLinkColor = #E5B19C;
+    parNoticeColor = #c381ff;
+    parReadMarker = #c381ff;
+    parInputBgr = rgba(black, 0.2);
+    parInputTxt = #fff;
+  }
+
+  if theme == autumn {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/autumn.jpg';
+    floatContacts = 0;
+    reducedContacts = 1;
+    separatorContacts = 1;
+    parChatColor = rgba(black, 0.3);
+    parContactsColor = rgba(black, 0.3);
+    parChatHeaderColor = rgba(black, 0.3);
+    parContactsHeaderColor = rgba(black, 0.3);
+    parContactSelectedColor = rgba(black, 0.2);
+    parContactSelectedLineColor = #c63834;
+    parOutgoingBgr = #2f2c2c;
+    parIncomingBgr = #2b2a2a;
+    parTxtColor = #fff;
+    parLinkColor = #e8716e;
+    parNoticeColor = #f7c673;
+    parReadMarker = #f7c673;
+    parInputBgr = rgba(black, 0.2);
+    parInputTxt = #fff;
+  }
+
+  if theme == winter {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/winter.jpg';
+    floatContacts = 0;
+    reducedContacts = 1;
+    separatorContacts = 0;
+    parChatColor = rgba(white, 0.4);
+    parContactsColor = rgba(white, 0.4);
+    parChatHeaderColor = rgba(white, 0.0);
+    parContactsHeaderColor = rgba(white, 0.0);
+    parContactSelectedColor = rgba(white, 0.4);
+    parContactSelectedLineColor = #68bbe4;
+    parOutgoingBgr = #fff;
+    parIncomingBgr = #fff;
+    parTxtColor = #313C4C;
+    parLinkColor = #087eb9;
+    parNoticeColor = #5cc0f2;
+    parReadMarker = #0af;
+    parInputBgr = rgba(white, 0.4);
+    parInputTxt = #313C4C;
+    darkStyle = 0;
+  }
+
+  if theme == dream {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/dream.png';
+    floatContacts = 0;
+    reducedContacts = 1;
+    separatorContacts = 1;
+    chatBlurIntensity = 0;
+    contactsBlurIntensity = 0;
+    parChatColor = rgba(white, 0.4);
+    parContactsColor = rgba(black, 0.2);
+    parChatHeaderColor = rgba(white, 0.0);
+    parContactsHeaderColor = rgba(white, 0.0);
+    parContactSelectedColor = rgba(white, 0.45);
+    parContactSelectedLineColor = #64d3ff;
+    parOutgoingBgr = #064d73;
+    parIncomingBgr = #400753;
+    parTxtColor = #fff;
+    parLinkColor = #64d3ff;
+    parNoticeColor = #67b5ee;
+    parReadMarker = #65bfff;
+    parInputBgr = rgba(black, 0.2);
+    parInputTxt = #fff;
+    darkStyle = 0;
+  }
+
+  if theme == office {
+    bgrImage = 'https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/images/office.jpg';
+    floatContacts = 0;
+    reducedContacts = 0;
+    separatorContacts = 0;
+    parChatColor = rgba(black, 0.3);
+    parContactsColor = rgba(black, 0.3);
+    parChatHeaderColor = rgba(black, 0.0);
+    parContactsHeaderColor = rgba(black, 0.0);
+    parContactSelectedColor = rgba(black, 0.2);
+    parContactSelectedLineColor = #03b7e1;
+    parOutgoingBgr = #222;
+    parIncomingBgr = #222;
+    parTxtColor = #fff;
+    parLinkColor = #03b7e1;
+    parNoticeColor = #03b7e1;
+    parReadMarker = #03b7e1;
+    parInputBgr = rgba(black, 0.2);
+    parInputTxt = #fff;
+  }
+
+
+  /* variables */
+  bgrColor = #333;
+  txtColor = parTxtColor;
+  txtColorDark = adjust(txtColor, 'lightness', -20%);
+  txtColorOpacity = rgba(txtColor, 0.5);
+  linkColor = parLinkColor;
+  noticeColor = parNoticeColor;
+  icoColor = rgba(parTxtColor, 0.5);
+  icoHoverColor = parTxtColor;
+  icoStarColor = gold;
+  semiTransparent = rgba(black, 0.2);
+  contactsHeaderColor = parContactsHeaderColor;
+  contactsColor = parContactsColor;
+  contactsBorder = rgba(white, 0.1);
+  contactSelectedColor = parContactSelectedColor;
+  contactSelectedHoverColor = rgba(contactSelectedColor, 0.2);
+  contactSelectedLineColor = parContactSelectedLineColor;
+  chatColor = parChatColor;
+  chatHeaderColor = parChatHeaderColor;
+  readMarker = parReadMarker;
+  outgoingBgr = parOutgoingBgr;
+  incomingBgr = parIncomingBgr;
+  inputBgr = rgba(parInputBgr);
+  inputTxt = rgba(parInputTxt);
+  popupTxt = #222;
+  popupBgr = #ddd;
+  emojiIcoHover = #000;
+  emojiSearchBgr = #eee;
+  emojiSearchBgrHover = #fff;
+  referencePersonHover = #006090
+
+  /* dark style */
+  if darkStyle {
+    popupTxt = #ddd;
+    popupBgr = #111;
+    emojiIcoHover = #fff;
+    emojiSearchBgr = #222;
+    emojiSearchBgrHover = #333;
+    referencePersonHover = #156379
+  }
+
+  if separatorContacts {
+    contactsBorder = rgba(white, 0);
+  }
+
+  /* variables - dimensions */
+  contactsHeightOffset = parContactsHeightOffset;
+  contactsWidth = parContactsWidth;
+  contactsRadius = parContactsRadius;
+  contactsBlurIntensity = parContactsBlurIntensity;
+  chatPaddingX = 64px;
+  chatMarginX = 16px;
+  chatPadding = 32px;
+  chatHeightOffset = parChatHeightOffset;
+  chatWidth = parChatWidth;
+  chatRadius = parChatRadius;
+  chatBlurIntensity = parChatBlurIntensity;
+
+  if floatContacts {
+    chatMarginX = 32px;
+  }
+
+  /* overwrite global css variables*/
+  :root, .dark {
+    --startup-background: transparent;
+    --startup-background-rgb: transparent;
+    --bgr-color: bgrColor;
+    --link: linkColor;
+    --link-rgb: linkColor;
+    --read-marker-color: readMarker;
+    --icon-ack-rgb: readMarker;
+    --icon-ack: readMarker;
+    --app-background-stripe: transparent;
+    --intro-background: transparent;
+    --panel-background-lighter: transparent;
+    --panel-header-background: transparent;
+    --avatar-background: transparent;
+    --conversation-panel-border: transparent;
+    --border-default: transparent;
+    --border-default-rgb: transparent;
+    --border-list: contactsBorder;
+    --border-list-rgb: contactsBorder;
+    --border-panel: transparent;
+    --border-panel-rgb: transparent;
+    --border-strong: transparent;
+    --border-stronger: transparent;
+    --border-strong-rgb: transparent;
+    --border-stronger-rgb: transparent;
+    --typing: noticeColor;
+    --typing-rgb: noticeColor;
+  }
+
+  /* overwrite css variables for contact list section */
+  #side {
+    --unread-marker-background: noticeColor;
+    --search-container-background: transparent;
+    --input-placeholder: inputTxt;
+    --input-placeholder-rgb: inputTxt;
+  }
+
+  /* overwrite css variables for chat section */
+  #main {
+    --compose-panel-background-hover: referencePersonHover;
+    --compose-panel-background-hover-rgb: referencePersonHover;
+    --primary-strong: txtColor;
+    --primary-stronger: rgba(241, 241, 242, 0.88);
+    --primary-strongest: #fff;
+    --secondary: txtColorDark;
+    --secondary-lighter: txtColorDark;
+    --secondary-stronger: txtColorDark;
+    --primary-title: txtColor;
+    --message-primary: txtColor;
+    --input-placeholder: inputTxt;
+    --input-placeholder-rgb: txtColorDark;
+    --compose-input-background: inputBgr;
+    --compose-primary: inputTxt;
+    --intro-secondary: txtColorDark;
+    --bubble-meta: txtColorDark;
+    --system-message-text: txtColor;
+    --unread-marker-text: txtColor;
+    --icon-lighter: txtColorOpacity;
+    --bubble-meta-icon: txtColorDark;
+    --conversation-panel-background: transparent;
+    --compose-panel-background: transparent;
+    --rich-text-panel-background: transparent;
+    --compose-input-background-focused: #3f5560;
+    --incoming-primary: #797c7e;
+    --incoming-background: incomingBgr;
+    --incoming-background-rgb: rgb(incomingBgr);
+    --incoming-background-deeper: adjust(incomingBgr, 'lightness', -30%);
+    --incoming-background-deeper-rgb: adjust(incomingBgr, 'lightness', -30%);
+    --incoming-background-highlight: #ccc;
+    --incoming-background-highlight-rgb: adjust(incomingBgr, 'lightness', 30%);
+    --outgoing-background: outgoingBgr;
+    --outgoing-background-rgb: rgb(outgoingBgr);
+    --outgoing-background-deeper: adjust(outgoingBgr, 'lightness', -30%);
+    --outgoing-background-deeper-rgb: adjust(outgoingBgr, 'lightness', -30%);
+    --outgoing-background-highlight: #ccc;
+    --outgoing-background-highlight-rgb: adjust(outgoingBgr, 'lightness', 30%);
+    --panel-background: #20272b;
+    --panel-background-rgb: 31.75, 39.01316, 43.25;
+    --panel-background-active: #1e2529;
+    --system-message-background: semiTransparent;
+    --notification-e2e-background: semiTransparent;
+    --notification-e2e-text: #fad964;
+    --notification-e2e-icon: #fad964;
+    --quick-action-button: txtColorDark;
+    --quick-action-button-background: semiTransparent;
+    --unread-background: semiTransparent;
+    --unread-bar-background: transparent;
+  }
+
+  /* scrollbar style */
+  *, .dark * {
+    scrollbar-color: semiTransparent transparent;
+    scrollbar-width: thin;
+  }
+
+  body {
+    background: bgrColor url(bgrImage) !important;
+    background-size: cover !important;
+  }
+
+  /* disable default animation */
+  #startup {
+    animation: none !important;
+  }
+
+  /* clear backgrounds */
+  #side > div,
+  #side > div:nth-child(3) > div,
+  #side #pane-side > div > div > div > div > div,
+  #side #pane-side > div > div > div > div > div > div,
+  #main > div,
+  #main > div > div > div > div > div,
+  #main footer > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) {
+    background: transparent;
+  }
+
+  /* clear borders */
+  #side #pane-side div > div:after,
+  #app > div > div > div:nth-child(4) > div,
+  #main > div > div > div > div > div,
+  #main footer > div:nth-child(1) > div:nth-child(2) {
+    border: unset;
+  }
+
+  /* hide unnecessary elements */
+  #side > div:nth-child(3) > div:after,
+  #app > div > div > div:nth-child(4) > div:after,
+  #main header:after {
+    display: none;
+  }
+
+  /* reset text colour  */
+  #app > div > div > div:nth-child(4) > div > div > div > div,
+  #app > div > div > div:nth-child(4) > div > div > div > div > div > div,
+  #app > div > div > div:nth-child(2) > div:nth-child(3) > span > div > span > div > div:nth-child(2) > div > div:nth-child(2) > div #side > div:nth-child(3) > div > label > div > div,
+  #side #pane-side > div > div > div > div > div,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div > span,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(1),
+  #main footer > div:nth-child(4) > div,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div > div:hover > span {
+    color: txtColor;
+  }
+
+  /* reset secondary text colour  */
+  #app > div > div > div:nth-child(4) > div > div > div > h1,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > span,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1),
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2),
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div > div > span {
+    color: txtColorDark;
+  }
+
+  /* set icons colour and transition  */
+  #side header > div:nth-child(2) > div > span > div svg,
+  #side > div:nth-child(3) > div > button svg,
+  #side > div:nth-child(3) > div > span > button > span > svg,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span > div svg,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:nth-child(3) svg,
+  #main .message-in > div > div > span svg,
+  #main .message-out > div > div > span svg,
+  #main > div > div > div > div > div > div > div > div > a svg,
+  #main > div > div > div > div > div > div > div > div > div > div > span > svg,
+  #main header > div:nth-child(3) > div > div > div > span > svg,
+  #main footer > div:nth-child(1) > div:nth-child(1) > div > div svg,
+  #main footer > div:nth-child(1) > div:nth-child(1) > div > button svg,
+  #main footer > div:nth-child(1) > div:nth-child(3) > div > span > button svg {
+    transition: color 200ms ease-in-out;
+    color: icoColor;
+  }
+
+  /* set icons hover transition  */
+  #side header > div:nth-child(2) > div > span > div:hover svg,
+  #side > div:nth-child(3) > div > button:hover svg,
+  #side > div:nth-child(3) > div > span > button:hover > span > svg,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span > div:hover svg,
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:nth-child(3):hover svg,
+  #main .message-in > div > div > span div > div:hover svg,
+  #main .message-out > div > div > span > div > div:hover svg,
+  #main header > div:nth-child(3) > div > div > div > span:hover > svg,
+  #main footer > div:nth-child(1) > div:nth-child(1) > div > div:hover svg,
+  #main footer > div:nth-child(1) > div:nth-child(1) > div > button:hover svg,
+  #main footer > div:nth-child(1) > div:nth-child(3) > div > span > button:hover svg {
+    color: icoHoverColor;
+  }
+
+  /* starred message */
+  #main .message-in span[data-testid="star"] > svg,
+  #main .message-out span[data-testid="star"] > svg {
+    color: icoStarColor;
+  }
+
+  /* change main window display property */
+  #app > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* clear startup screen */
+  #app > div > ._2sWIa.TZ8aZ._1one0._1F05l {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 100vw;
+    max-width: unset;
+
+    &:before {
+      display: none;
+    }
+
+    & div {
+      background-color: transparent;
+      color: transparent;
+    }
+  }
+
+  /* change main container sizing */
+  #app > div > div {
+    opacity: 0;
+    animation: ease-in-out show 0.5s 0s forwards;
+    top: 0;
+    bottom: 0;
+    height: 100vh - (chatHeightOffset / 5);
+    border-radius: chatRadius;
+    width: contactsWidth + chatWidth;
+    max-width: contactsWidth + chatWidth;
+
+    /* main container blur */
+
+    &:before {
+      opacity: 0;
+      animation: ease-in-out show 0.5s 0s forwards;
+      position: absolute;
+      z-index: -2;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      content: '';
+      transform: translate(-50%, -50%);
+      background: url(bgrImage);
+      background-size: cover;
+      filter: blur(chatBlurIntensity);
+    }
+  }
+
+
+  /* contact container */
+  #app > div > div > div:nth-child(3) {
+    box-sizing: border-box;
+    background-color: contactsColor;
+    max-width: contactsWidth;
+  }
+
+  /* chat container */
+  #app > div > div > div:nth-child(4) {
+    box-sizing: border-box;
+    background-color: chatColor;
+    max-width: chatWidth;
+  }
+
+  /* contact list header */
+  #side header {
+    background-color: contactsHeaderColor !important;
+  }
+
+  /* contact separator */
+  #side #pane-side > div > div > div > div > div > div > div:hover {
+    border-top: 1px solid contactsBorder;
+  }
+
+  /* contact list item selected */
+  #side #pane-side div[aria-selected="true"] {
+    border-left: 4px solid contactSelectedLineColor;
+    background-color: contactSelectedColor !important;
+  }
+
+  /* contact list item hover */
+  #side #pane-side > div > div > div > div > div > div:hover > div {
+    border-top: 1px solid contactsBorder;
+    background-color: contactSelectedHoverColor;
+  }
+
+  /* contact list item avatar & text */
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1),
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) {
+    margin-top: -1px;
+    border-top: 1px solid contactsBorder;
+  }
+
+  /* contact list item icons container */
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2),
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span {
+    display: flex;
+    align-items: center;
+    height: 22px;
+  }
+
+  /* contact list item unread badge frame */
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) {
+    display: flex;
+    align-items: center;
+  }
+
+  /* contact list item unread value */
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) > span {
+    box-sizing: border-box;
+    height: 19px;
+    min-width: 19px;
+    text-align: center;
+  }
+
+  /* search bar */
+  #side > div:nth-child(3) {
+    order: 3;
+    padding-bottom: 6px;
+  }
+
+  /* hide search bottom border */
+  #side > div:nth-child(3) > div {
+    border-bottom: unset;
+  }
+
+  /* search input bgr */
+  #side > div:nth-child(3) > div > label {
+    background-color: inputBgr;
+  }
+
+  /* prechat  */
+  #app > div > div > div:nth-child(4) > div {
+    transform: none !important;
+  }
+
+
+  /* chat header */
+  #main header {
+    background-color: chatHeaderColor !important;
+    box-shadow: unset;
+  }
+
+  /* chat messages container */
+  #main > div > div > div > div > div {
+    box-shadow: unset;
+    padding-right: chatPadding;
+    padding-left: chatPadding;
+  }
+
+  /* spinner */
+  #main > div > div > div > div > div > svg {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: semiTransperent;
+    box-shadow: unset;
+  }
+
+  /* date separator */
+  #main > div > div > span > div > div > div,
+  #main > div > div > div > div > div > div,
+  #main > div > div > div > div > div > span {
+    text-shadow: none;
+  }
+
+  /* remove chat mark fill */
+  #main > div > div > div > div > div > div > span > svg {
+    fill: transparent;
+  }
+
+  /* quote person, add link  */
+  #main footer > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div > div,
+  #main footer > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div > div:nth-child(1) > div {
+    background: outgoingBgr;
+  }
+
+  /* popup window */
+  #main footer > div:nth-child(4) > div:after,
+  #main footer > div:nth-child(4) > div > div,
+  #main footer > div:nth-child(4) > div > div > div,
+  #main footer > div:nth-child(4) > div > div > div > div,
+  #main footer > div:nth-child(3) > div > div,
+  #main footer > div:nth-child(3) > div:after,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1),
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(2) {
+    background-color: popupBgr;
+  }
+
+  #main footer > div:nth-child(4) > div > div,
+  #main footer > div:nth-child(4) > div > div > div,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div label,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div > div > div svg,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div label div > input::placeholder,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div:nth-child(2) > div > div > div > div > div > div > div {
+    color: popupTxt
+  }
+
+
+  #main footer > div:nth-child(4) > div,
+  #main footer > div:nth-child(3) > div {
+    padding: 0 16px 8px 16px;
+  }
+
+  /* popup marker */
+  #main footer > div:nth-child(4) > div:after,
+  #main footer > div:nth-child(3) > div:after {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 120px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+  }
+
+  #main footer > div:nth-child(4) > div > div,
+  #main footer > div:nth-child(3) > div > div {
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 4px;
+  }
+
+  /* emoji window */
+  #main footer > div:nth-child(2) > div > div:nth-child(3) {
+    margin: 0 16px 8px 16px;
+    overflow: hidden;
+  }
+
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) {
+    border-radius: 8px 8px 0 0;
+  }
+
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(2) {
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+  }
+
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div label {
+    transition: background-color 200ms ease-in-out;
+    background-color: emojiSearchBgr;
+  }
+
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div label:hover,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div label:focus,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div label:active {
+    background-color: emojiSearchBgrHover;
+  }
+
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div > div > div svg {
+    transition: color 200ms ease-in-out;
+  }
+
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1) > div > div > div:hover svg {
+    color: emojiIcoHover;
+  }
+
+
+  /* reduce contacts */
+  if reducedContacts {
+    #pane-side > div > div > div > div > div > div > div:nth-child(2) {
+      flex-flow: row;
+      padding-right: 0;
+    }
+
+    #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) {
+      flex-grow: 2
+    }
+
+    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2),
+    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+      display: none
+    }
+
+    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+      padding-right: 16px
+    }
+  }
+
+  /* float contacts */
+  if floatContacts {
+    #app > div > div {
+      opacity: 1;
+      animation: none !important;
+      width: 100vw;
+      height: 100vh;
+      max-width: unset;
+      border-radius: unset;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    #app > div > div > div:nth-child(3) {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      animation: ease-in-out show 0.3s 0.5s forwards;
+      margin: contactsHeightOffset 0;
+      height: unset;
+      width: contactsWidth;
+      max-width: unset;
+      border-radius: 0 contactsRadius contactsRadius 0;
+    }
+
+    #app > div > div > div:nth-child(4) {
+      background: transparent !important;
+      min-width: 500px;
+      max-width: unset;
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 100px;
+      box-sizing: border-box;
+      padding: chatHeightOffset chatPaddingX;
+      animation: ease-in-out show 0.3s 1s forwards;
+      opacity: 0;
+    }
+
+    @media only screen and (max-width: 2080px) {
+      #app > div > div > div:nth-child(4) {
+        left: contactsWidth;
+      }
+    }
+
+    /* blur effect */
+    #side:before {
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      content: '';
+      background: bgrColor url(bgrImage) !important;
+      transform: translate(0, calc(0 - contactsHeightOffset));
+      background-size: cover !important;
+      filter: blur(contactsBlurIntensity);
+    }
+
+    #side:after {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      content: '';
+      opacity: 1;
+      background-color: contactsColor;
+    }
+
+    #app > div > div > div:nth-child(4) > div {
+      position: relative;
+      z-index: 8;
+      overflow: hidden;
+      width: 100%;
+      max-width: chatWidth;
+      height: 100%;
+      margin: 0 auto;
+      opacity: 1;
+      border: unset;
+      border-radius: chatRadius;
+      transform: none !important;
+
+      &:before {
+        position: absolute;
+        z-index: -10;
+        top: 50%;
+        left: 50%;
+        width: 100vw !important;
+        height: 100vh !important;
+        content: '';
+        transform: translate(calc(-50% - 50px), -50%);
+        background: bgrColor url(bgrImage) !important;
+        background-size: cover !important;
+        filter: blur(chatBlurIntensity);
+      }
+    }
+
+
+    @media only screen and (max-width: 2080px) {
+      #app > div > div > div:nth-child(4) > div:before {
+        transform: translate(calc(-50% - 180px), -50%);
+      }
+    }
+
+    /* bgr welcome screen */
+    #app > div > div > div:nth-child(4) > div > div:before {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      content: '';
+      background-image: unset;
+      background-color: chatColor !important;
+    }
+
+    /* bgr welcome screen clear after contact select */
+    #main > div:before {
+      display: none;
+    }
+
+    /* bgr chat color */
+    #main > div:first-child {
+      opacity: 1 !important;
+      background-image: unset;
+      background-color: chatColor !important;
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0
+    }
+    to {
+      opacity: 1
+    }
+  }
 
 }
