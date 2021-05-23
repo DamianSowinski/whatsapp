@@ -21,7 +21,7 @@
 
 @var text     parCustomBgrImage             "Bgr image"                         "'your image url'"
 
-@var checkbox darkStyle                     "Dark style"                        0
+@var checkbox darkStyle                     "Dark emoji window"                 0
 @var checkbox floatContacts                 "Separate contacts"                 0
 @var checkbox reducedContacts               "Reduce contacts"                   0
 @var checkbox separatorContacts             "Hide contacts separate lines"      0
@@ -338,7 +338,7 @@
     --outgoing-background-highlight: #ccc;
     --outgoing-background-highlight-rgb: adjust(outgoingBgr, 'lightness', 30%);
     --panel-background: #20272b;
-    --panel-background-rgb: 31.75, 39.01316, 43.25;
+    --panel-background-rgb: rgba(32, 39, 43, 1);
     --panel-background-active: #1e2529;
     --system-message-background: semiTransparent;
     --notification-e2e-background: semiTransparent;
@@ -892,5 +892,4 @@
       opacity: 1
     }
   }
-
 }
