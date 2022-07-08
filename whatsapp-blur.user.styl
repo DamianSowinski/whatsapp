@@ -381,6 +381,7 @@
   #side #pane-side div > div:after,
   #app > div > div > div:nth-child(4) > div,
   #main > div > div > div > div > div,
+  #main > footer > div > div > span:nth-child(2) > div > div:nth-child(2) > div:first-child,
   #main footer > div:nth-child(1) > div:nth-child(2) {
     border: unset;
   }
@@ -587,7 +588,7 @@
   }
 
   /* search input bgr */
-  #side > div:nth-child(3) > div > label {
+  #side > div:nth-child(3) > div > div > div:nth-child(4) {
     background-color: inputBgr;
   }
 
@@ -638,7 +639,6 @@
 
   /* popup window */
   #main footer > div:nth-child(4) > div:after,
-  #main footer > div:nth-child(4) > div > div,
   #main footer > div:nth-child(4) > div > div > div,
   #main footer > div:nth-child(4) > div > div > div > div,
   #main footer > div:nth-child(3) > div > div,
@@ -668,7 +668,7 @@
   #main footer > div:nth-child(3) > div:after {
     position: absolute;
     z-index: -1;
-    bottom: 0;
+    bottom: 2px;
     left: 120px;
     content: '';
     width: 20px;
@@ -676,7 +676,7 @@
     transform: rotate(45deg);
   }
 
-  #main footer > div:nth-child(4) > div > div,
+  #main footer > div:nth-child(4) > div > div > div,
   #main footer > div:nth-child(3) > div > div {
     border-radius: 8px;
     overflow: hidden;
