@@ -368,9 +368,10 @@
 
   /* clear backgrounds */
   #side > div,
-  #side > div:nth-child(3) > div,
+  #side > div:nth-child(1) > div,
   #side #pane-side > div > div > div > div > div,
   #side #pane-side > div > div > div > div > div > div,
+  #side #pane-side > div > div > div > div > div > div > div,
   #main > div,
   #main > div > div > div > div > div,
   #main footer > div:nth-child(2) > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) {
@@ -381,13 +382,14 @@
   #side #pane-side div > div:after,
   #app > div > div > div:nth-child(4) > div,
   #main > div > div > div > div > div,
-  #main footer > div:nth-child(1) > div:nth-child(2) {
-    border: unset;
+  #main footer > div:nth-child(1) > div > span > div > div:nth-child(2) > div:nth-child(1) {
+    border: unset !important;
   }
 
   /* hide unnecessary elements */
   #side > div:nth-child(3) > div:after,
   #app > div > div > div:nth-child(4) > div:after,
+  #side #pane-side > div:nth-child(2),
   #main header:after {
     display: none;
   }
@@ -525,13 +527,8 @@
   }
 
   /* contact list header */
-  #side header {
+  #app > div > div > div:nth-child(3) header {
     background-color: contactsHeaderColor !important;
-  }
-
-  /* contact separator */
-  #side #pane-side > div > div > div > div > div > div > div:hover {
-    border-top: 1px solid contactsBorder;
   }
 
   /* contact list item selected */
@@ -542,53 +539,58 @@
 
   /* contact list item hover */
   #side #pane-side > div > div > div > div > div > div:hover > div {
-    border-top: 1px solid contactsBorder;
+    //  border-top: 1px solid contactsBorder;
     background-color: contactSelectedHoverColor;
   }
 
   /* contact list item avatar & text */
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(1),
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) {
+  #side #pane-side > div > div > div > div > div > div > div > div:nth-child(1),
+  #side #pane-side > div > div > div > div > div > div > div > div:nth-child(2) {
     margin-top: -1px;
     border-top: 1px solid contactsBorder;
   }
 
   /* contact list item icons container */
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2),
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span {
+  #side #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2),
+  #side #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span {
     display: flex;
     align-items: center;
     height: 22px;
   }
 
   /* contact list item unread badge frame */
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) {
+  #side #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) {
     display: flex;
     align-items: center;
+    justify-content center;
   }
 
   /* contact list item unread value */
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) > span {
+  #side #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) > span {
     box-sizing: border-box;
     height: 19px;
     min-width: 19px;
     text-align: center;
+    line-height: 10px;
   }
 
   /* search bar */
-  #side > div:nth-child(3) {
+  #side > div:nth-child(1) {
     order: 3;
-    padding-bottom: 6px;
   }
 
   /* hide search bottom border */
-  #side > div:nth-child(3) > div {
+  #side > div:nth-child(1) > div {
     border-bottom: unset;
   }
 
   /* search input bgr */
-  #side > div:nth-child(3) > div > label {
+  #side > div:nth-child(1) > div > div > div {
     background-color: inputBgr;
+  }
+
+  #side > div:nth-child(1) > div > div > div:nth-child(3) {
+    background-color: transparent;
   }
 
   /* prechat  */
@@ -637,15 +639,19 @@
   }
 
   /* popup window */
-  #main footer > div:nth-child(4) > div:after,
-  #main footer > div:nth-child(4) > div > div,
-  #main footer > div:nth-child(4) > div > div > div,
-  #main footer > div:nth-child(4) > div > div > div > div,
-  #main footer > div:nth-child(3) > div > div,
+  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(2),
+  #main footer > div:nth-child(3) > div > div > div > div > div,
   #main footer > div:nth-child(3) > div:after,
-  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(1),
-  #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div:nth-child(2) {
+  #main footer > div:nth-child(4) > div:after,
+  #main footer > div:nth-child(4) > div > div > div > div {
     background-color: popupBgr;
+  }
+
+
+  #main footer > div:nth-child(4) > div > div > div > div,
+  #main footer > div:nth-child(3) > div > div > div {
+    overflow: hidden;
+    border-radius: 4px
   }
 
   #main footer > div:nth-child(4) > div > div,
@@ -668,7 +674,7 @@
   #main footer > div:nth-child(3) > div:after {
     position: absolute;
     z-index: -1;
-    bottom: 0;
+    bottom: 6px;
     left: 120px;
     content: '';
     width: 20px;
@@ -720,26 +726,30 @@
 
   /* reduce contacts */
   if reducedContacts {
-    #pane-side > div > div > div > div > div > div > div:nth-child(2) {
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(2) {
       flex-flow: row;
       padding-right: 0;
     }
 
-    #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) > div {
+    // avatar
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(1) > div > div,
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(1) > div > div > div,
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(1) > div > div img {
       width: 40px !important;
       height: 40px !important;
     }
 
-    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) {
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) {
       flex-grow: 2
     }
 
-    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2),
-    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2),
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
       display: none
     }
 
-    #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+    #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
       padding-right: 16px
     }
   }
@@ -797,31 +807,38 @@
     }
 
     /* blur effect */
-    #side:before {
-      position: absolute;
-      z-index: -2;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      content: '';
-      background: bgrColor url(bgrImage) !important;
-      transform: translate(0, calc(0 - contactsHeightOffset));
-      background-size: cover !important;
-      filter: blur(contactsBlurIntensity);
+    #app > div > div > div:nth-child(3) {
+      max-width: contactsWidth;
+      position: relative;
+      overflow: hidden;
+
+      &:before {
+        position: absolute;
+        z-index: -11;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        content: '';
+        background: bgrColor url(bgrImage) !important;
+        transform: translate(0, calc(0 - contactsHeightOffset));
+        background-size: cover !important;
+        filter: blur(contactsBlurIntensity);
+      }
+
+      &:after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        content: '';
+        opacity: 1;
+        background-color: contactsColor;
+      }
     }
 
-    #side:after {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      content: '';
-      opacity: 1;
-      background-color: contactsColor;
-    }
 
     #app > div > div > div:nth-child(4) > div {
       position: relative;
