@@ -288,6 +288,7 @@
     --border-stronger-rgb: transparent;
     --typing: noticeColor;
     --typing-rgb: noticeColor;
+    --unread-timestamp: var(noticeColor);
   }
 
   /* overwrite css variables for contact list section */
@@ -348,6 +349,7 @@
     --quick-action-button-background: semiTransparent;
     --unread-background: semiTransparent;
     --unread-bar-background: transparent;
+    --unread-timestamp: var(noticeColor);
   }
 
   /* scrollbar style */
@@ -432,6 +434,14 @@
   #main footer > div:nth-child(1) > div:nth-child(3) > div > span > button svg {
     transition: color 200ms ease-in-out;
     color: icoColor;
+  }
+
+  #main .message-in > div > span {
+    left: -7px;
+  }
+
+  #main .message-out > div > span {
+    right: -7px;
   }
 
   /* set icons hover transition  */
@@ -562,7 +572,7 @@
   #side #pane-side > div > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:first-child > div:nth-last-child(1) {
     display: flex;
     align-items: center;
-    justify-content center;
+    justify-content: center;
   }
 
   /* contact list item unread value */
