@@ -1,5 +1,5 @@
 # WhatsApp Blur theme
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/DamianSowinski/whatsapp/wiki/Changelog)
+[![Version](https://img.shields.io/badge/Version-1.0.2-blue)](https://github.com/DamianSowinski/whatsapp/wiki/Changelog)
 [![Version](https://img.shields.io/static/v1?label=Docs&message=on%20GitHub&color=3884FF&logo=GitBook&logoColor=white)](https://github.com/DamianSowinski/whatsapp/wiki)
 [![Version](https://img.shields.io/static/v1?label=Install%20with&message=Stylus&color=teal&logo=stylus&logoColor=white)](https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/whatsapp-blur.user.styl)
 ![Version](https://img.shields.io/static/v1?label=License&message=MIT&color=green)
