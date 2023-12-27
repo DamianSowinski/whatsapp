@@ -5,7 +5,7 @@
 @homepageURL    https://github.com/DamianSowinski/whatsapp
 @supportURL     https://github.com/DamianSowinski/whatsapp/wiki
 @updateURL      https://raw.githubusercontent.com/DamianSowinski/whatsapp/master/whatsapp-blur.user.styl
-@version        1.0.2
+@version        1.0.3
 @author         Damian Sowiński <damian.sowinski@hotmail.com> (https://github.com/DamianSowinski)
 @preprocessor   stylus
 
@@ -403,6 +403,7 @@
   #side #pane-side > div > div > div > div > div,
   #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div > span,
   #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(1),
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div,
   #main footer > div:nth-child(4) > div,
   #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div > div:hover > span {
     color: txtColor;
@@ -412,8 +413,10 @@
   #app > div > div > div:nth-child(5) > div > div > div > h1,
   #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div,
   #side #pane-side > div > div > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > span,
-  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1),
   #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2),
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1),
+  #side #pane-side > div > div > div > div > div > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div,
+
   #main footer > div:nth-child(2) > div > div:nth-child(3) > div > div > div > div > span {
     color: txtColorDark;
   }
@@ -492,7 +495,7 @@
   }
 
   /* change main container sizing */
-  #app > div > div {
+  #app > div > div:last-child {
     opacity: 0;
     animation: ease-in-out show 0.5s 0s forwards;
     top: 0;
@@ -503,7 +506,6 @@
     max-width: contactsWidth + chatWidth;
 
     /* main container blur */
-
     &:before {
       opacity: 0;
       animation: ease-in-out show 0.5s 0s forwards;
@@ -523,21 +525,23 @@
 
 
   /* contact container */
-  #app > div > div > div:nth-child(4) {
+  #app > div > div:last-child > div:nth-child(3) {
     box-sizing: border-box;
     background-color: contactsColor;
     max-width: contactsWidth;
+    width: contactsWidth;
   }
 
   /* chat container */
-  #app > div > div > div:nth-child(5) {
+  #app > div > div:last-child > div:nth-child(4) {
     box-sizing: border-box;
     background-color: chatColor;
     max-width: chatWidth;
+    width: chatWidth;
   }
 
   /* contact list header */
-  #app > div > div > div:nth-child(4) header {
+  #app > div > div:last-child > div:nth-child(3) header {
     background-color: contactsHeaderColor !important;
   }
 
@@ -604,7 +608,7 @@
   }
 
   /* prechat  */
-  #app > div > div > div:nth-child(5) > div {
+  #app > div:nth-child(2) > div > div:nth-child(5) > div {
     transform: none !important;
   }
 
@@ -791,9 +795,12 @@
     }
   }
 
+
+
   /* float contacts */
   if floatContacts {
-    #app > div > div {
+    #app > div > div:last-child {
+        top: 0;
       opacity: 1;
       animation: none !important;
       width: 100vw;
@@ -806,7 +813,7 @@
       }
     }
 
-    #app > div > div > div:nth-child(4) {
+    #app > div > div:last-child > div:nth-child(4) {
       position: absolute;
       z-index: 10;
       top: 0;
@@ -821,10 +828,11 @@
       border-radius: 0 contactsRadius contactsRadius 0;
     }
 
-    #app > div > div > div:nth-child(5) {
+    #app > div > div:last-child > div:nth-child(4) {
       background: transparent !important;
       min-width: 500px;
       max-width: unset;
+      width: 100%;
       position: absolute;
       z-index: 5;
       top: 0;
@@ -838,13 +846,13 @@
     }
 
     @media only screen and (max-width: 2080px) {
-      #app > div > div > div:nth-child(5) {
+      #app > div > div:last-child > div:nth-child(5) {
         left: contactsWidth;
       }
     }
 
     /* blur effect */
-    #app > div > div > div:nth-child(4) {
+    #app > div > div:last-child > div:nth-child(3) {
       max-width: contactsWidth;
       position: relative;
       overflow: hidden;
@@ -877,7 +885,7 @@
     }
 
 
-    #app > div > div > div:nth-child(5) > div {
+    #app > div > div:last-child > div:nth-child(4) > div {
       position: relative;
       z-index: 8;
       overflow: hidden;
@@ -907,13 +915,13 @@
 
 
     @media only screen and (max-width: 2080px) {
-      #app > div > div > div:nth-child(5) > div:before {
-        transform: translate(calc(-50% - 180px), -50%);
+      #app > div > div:last-child > div:nth-child(4) > div:before {
+        transform: translate(calc(-50% - 100px), -50%);
       }
     }
 
     /* bgr welcome screen */
-    #app > div > div > div:nth-child(5) > div > div:before {
+    #app > div > div:last-child > div:nth-child(4) > div > div:before {
       position: absolute;
       z-index: -1;
       top: 0;
